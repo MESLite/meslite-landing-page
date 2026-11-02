@@ -1,0 +1,292 @@
+/* MESLite — etap 1: layout, treści i responsywność bez JavaScriptu. */
+:root {
+  color-scheme: light;
+  --color-dark: #101e28;
+  --color-light: #edf2f7;
+  --color-accent: #f58220;
+  --color-white: #f7f9fc;
+  --color-text-light: #263643;
+  --color-text-muted: #465767;
+  --color-text-on-dark: #c8d2db;
+  --color-border-light: #cdd7df;
+  --color-border-dark: #52616b;
+  --container-width: 1120px;
+  --gutter: clamp(20px, 4.8vw, 48px);
+  --type-body: clamp(16px, 1.2vw, 17px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 280px;
+  color: var(--color-text-light);
+  background: var(--color-light);
+  font-family: Roboto, "Segoe UI", Arial, sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.63;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 5px; }
+::selection { background: var(--color-accent); color: #101e28; }
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  left: 12px;
+  top: 12px;
+  padding: 10px 16px;
+  color: var(--color-dark);
+  background: var(--color-white);
+  border: 2px solid var(--color-accent);
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: none; }
+
+.container {
+  width: min(var(--container-width), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+.site-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: clip;
+}
+.site-section--dark { background: var(--color-dark); color: var(--color-white); }
+.site-section--light { background: var(--color-light); color: var(--color-text-light); }
+/* W etapie 2 do każdego kontenera będzie wstawione osobne proceduralne SVG. */
+.section-decoration {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.section-content { position: relative; z-index: 1; }
+/* W etapie 2 blok treści będzie nieprzezroczystą osłoną linii, bez tworzenia kart. */
+.site-section--dark .text-surface { background: var(--color-dark); }
+.site-section--light .text-surface { background: var(--color-light); }
+
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.17; letter-spacing: -0.026em; }
+h1 { font-size: clamp(39px, 4.3vw, 61px); font-weight: 800; }
+h2 { font-size: clamp(30px, 3.15vw, 43px); font-weight: 800; }
+h3 { font-size: clamp(20px, 1.8vw, 24px); font-weight: 700; }
+p { margin-bottom: 0; }
+p + p { margin-top: 14px; }
+
+/* Nagłówek */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding-block: 30px 24px;
+}
+.brand { display: inline-flex; align-items: center; gap: 13px; white-space: nowrap; }
+.brand__mark { width: 59px; height: 49px; object-fit: contain; }
+.brand__name { font-size: 29px; font-weight: 800; line-height: 1; letter-spacing: -0.018em; }
+.brand__name-light { font-weight: 500; }
+.site-nav { display: flex; justify-content: flex-end; align-items: center; gap: clamp(24px, 4vw, 49px); }
+.site-nav a {
+  color: #dbe2e9;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  padding: 10px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+.site-nav a:hover { color: #fff; border-color: var(--color-accent); }
+
+/* Otwarcie */
+.hero { padding-block: clamp(68px, 7.1vw, 108px) clamp(91px, 9.4vw, 137px); }
+.hero__copy { max-width: 790px; width: min(100%, 76%); }
+.hero h1 { max-width: 770px; margin-bottom: 26px; }
+.hero h1 span { color: var(--color-accent); display: block; }
+.hero__lead { color: var(--color-white); font-size: clamp(19px, 1.6vw, 22px); font-weight: 600; line-height: 1.4; }
+.hero__copy > p:not(.hero__lead) { max-width: 675px; color: var(--color-text-on-dark); }
+.hero__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px 32px; margin-top: 36px; }
+.button-outline {
+  display: inline-flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 21px;
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-white);
+  background: transparent;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.3;
+  text-align: center;
+  transition: background .15s ease, color .15s ease;
+}
+.button-outline:hover { color: var(--color-dark); background: var(--color-accent); }
+.link-accent {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  width: fit-content;
+  color: var(--color-accent);
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  transition: text-decoration-color .15s ease;
+}
+.link-accent:hover { text-decoration-color: currentColor; }
+.link-accent__arrow { text-decoration: none; display: inline-block; font-size: 21px; font-weight: 400; line-height: 1; }
+.link-accent--dark { color: #c55b0b; }
+
+/* Wspólne sekcje informacyjne */
+.content-section { padding-block: 83px 92px; }
+.section-heading { max-width: 840px; margin-bottom: 44px; }
+.section-heading h2 { margin-bottom: 0; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 51px; }
+.feature { min-width: 0; }
+.feature__heading { display: block; }
+.feature__icon { width: 44px; height: 44px; margin-bottom: 23px; fill: none; stroke: #d87628; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.feature h3 { margin-bottom: 15px; }
+.feature p { color: var(--color-text-muted); line-height: 1.62; }
+.site-section--problems .content-section { padding-bottom: 76px; }
+.site-section--offer .content-section { padding-top: 59px; padding-bottom: 96px; }
+.offer-summary {
+  margin-top: 45px;
+  padding: 3px 0 3px 23px;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-text-light);
+  font-size: clamp(17px, 1.45vw, 19px);
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 905px;
+}
+
+/* MESLite — dwa strumienie informacji + wyróżnienie pilotażu */
+.site-section--product .content-section { padding-block: 94px 100px; }
+.product-intro { max-width: 825px; }
+.product-intro h2 { margin-bottom: 18px; }
+.product-intro__line { font-weight: 600; letter-spacing: 0.04em; color: var(--color-accent); margin-bottom: 19px; }
+.product-intro > p:not(.product-intro__line) { color: var(--color-text-on-dark); max-width: 760px; }
+.product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; margin-top: 60px; }
+.product-group h3 { font-size: clamp(23px, 2vw, 27px); margin-bottom: 26px; }
+.accent-list { margin: 0; padding: 0; list-style: none; }
+.accent-list li { position: relative; padding-left: 24px; margin-top: 0; color: var(--color-text-on-dark); }
+.accent-list li + li { margin-top: 17px; }
+.accent-list li::before {
+  content: "";
+  position: absolute;
+  top: .67em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--color-accent);
+  transform: translateY(-1px);
+}
+.pilot-frame {
+  --corner: 17px;
+  margin-top: 64px;
+  padding: 1.5px;
+  background: var(--color-accent);
+  clip-path: polygon(var(--corner) 0, calc(100% - var(--corner)) 0, 100% var(--corner), 100% calc(100% - var(--corner)), calc(100% - var(--corner)) 100%, var(--corner) 100%, 0 calc(100% - var(--corner)), 0 var(--corner));
+}
+.pilot-frame__inner {
+  --corner: 16px;
+  padding: clamp(23px, 3.5vw, 39px) clamp(23px, 3.8vw, 43px);
+  clip-path: polygon(var(--corner) 0, calc(100% - var(--corner)) 0, 100% var(--corner), 100% calc(100% - var(--corner)), calc(100% - var(--corner)) 100%, var(--corner) 100%, 0 calc(100% - var(--corner)), 0 var(--corner));
+}
+.pilot-frame h3 { font-size: clamp(24px, 2.3vw, 29px); margin-bottom: 17px; }
+.pilot-frame p { max-width: 970px; color: var(--color-text-on-dark); }
+.pilot-frame .link-accent { margin-top: 20px; }
+
+/* Współpraca */
+.site-section--process .content-section { padding-block: 91px 80px; }
+.process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
+.process-step { min-width: 0; padding: 0 31px 0 0; }
+.process-step + .process-step { border-left: 1px solid var(--color-border-light); padding-left: 31px; }
+.process-step__number { display: block; font-size: 40px; font-weight: 700; color: #d36d1c; line-height: 1; margin-bottom: 20px; letter-spacing: -0.02em; }
+.process-step h3 { margin-bottom: 12px; }
+.process-step p { color: var(--color-text-muted); }
+.process-summary { margin-top: 44px; color: var(--color-text-light); font-size: clamp(18px, 1.6vw, 21px); font-weight: 600; }
+
+/* Kontakt */
+.site-section--contact .content-section { padding-block: 50px 115px; }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1.36fr) minmax(0, .8fr); gap: 78px; align-items: start; }
+.contact-copy h2 { margin-bottom: 23px; max-width: 600px; }
+.contact-copy__lead { font-weight: 600; }
+.contact-copy p:not(.contact-copy__lead) { color: var(--color-text-muted); max-width: 660px; }
+.contact-copy .link-accent { margin-top: 26px; }
+.contact-details { padding-top: 10px; }
+.contact-details__row { display: flex; gap: 16px; align-items: flex-start; }
+.contact-details__icon { width: 27px; height: 27px; flex: 0 0 27px; margin-top: 2px; fill: none; stroke: #c56d22; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.contact-details__label { display: block; margin-bottom: 5px; font-size: 14px; font-weight: 700; color: var(--color-text-muted); }
+.contact-details a { color: var(--color-text-light); font-size: 17px; overflow-wrap: anywhere; text-underline-offset: 4px; }
+.contact-details a:hover { text-decoration: underline; color: #b9540a; }
+
+@media (max-width: 1000px) {
+  .hero__copy { width: min(100%, 86%); }
+  .feature-grid { gap: 30px; }
+  .product-grid { gap: 40px; }
+  .contact-layout { gap: 43px; }
+}
+
+@media (max-width: 860px) {
+  :root { --gutter: clamp(20px, 5.8vw, 36px); }
+  .site-header { display: block; padding-block: 24px 0; }
+  .brand__mark { width: 50px; height: 42px; }
+  .brand__name { font-size: 26px; }
+  .site-nav { justify-content: space-between; gap: 12px; margin-top: 19px; border-top: 1px solid var(--color-border-dark); border-bottom: 1px solid var(--color-border-dark); }
+  .site-nav a { flex: 1; text-align: center; padding-block: 14px; font-size: 15px; }
+  .hero { padding-block: 63px 84px; }
+  .hero__copy { width: 100%; max-width: 660px; }
+  .hero h1 { font-size: clamp(34px, 6.5vw, 51px); max-width: 640px; margin-bottom: 25px; }
+  .hero__actions { gap: 18px 25px; margin-top: 29px; }
+  .content-section { padding-block: 68px 70px; }
+  .section-heading { margin-bottom: 34px; }
+  .feature-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .feature { padding-block: 21px 26px; }
+  .feature + .feature { border-top: 1px solid var(--color-border-light); }
+  .feature__heading { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 11px; }
+  .feature__icon { width: 37px; height: 37px; flex: 0 0 37px; margin: -3px 0 0; }
+  .feature h3 { margin: 0; }
+  .feature p { margin-left: 53px; }
+  .site-section--problems .content-section { padding-bottom: 35px; }
+  .site-section--offer .content-section { padding-top: 47px; padding-bottom: 72px; }
+  .offer-summary { margin-top: 25px; }
+  .site-section--product .content-section { padding-block: 73px 79px; }
+  .product-grid { grid-template-columns: minmax(0, 1fr); gap: 39px; margin-top: 44px; }
+  .pilot-frame { margin-top: 50px; }
+  .site-section--process .content-section { padding-block: 74px 54px; }
+  .process-grid { grid-template-columns: minmax(0, 1fr); }
+  .process-step, .process-step + .process-step { padding: 22px 0; border-left: 0; }
+  .process-step + .process-step { border-top: 1px solid var(--color-border-light); }
+  .process-step { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 13px; }
+  .process-step__number { margin: 2px 0 0; font-size: 29px; }
+  .process-step h3 { font-size: 21px; }
+  .process-summary { margin-top: 26px; }
+  .site-section--contact .content-section { padding-block: 49px 86px; }
+  .contact-layout { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .contact-details { padding-top: 0; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: clamp(32px, 9vw, 38px); }
+  .hero__lead { font-size: 19px; }
+  .hero__actions { align-items: flex-start; flex-direction: column; gap: 19px; }
+  .button-outline { width: 100%; padding-inline: 13px; }
+  .feature__heading { gap: 13px; }
+  .feature p { margin-left: 50px; }
+  .product-intro__line { font-size: 14px; letter-spacing: 0.005em; }
+  .pilot-frame__inner { padding: 25px 20px; }
+  .process-step { grid-template-columns: 44px minmax(0, 1fr); gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}

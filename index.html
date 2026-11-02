@@ -1,15 +1,215 @@
 <!doctype html>
 <html lang="pl">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MES Lite</title>
-    <meta name="description" content="MES Lite — lekki system zarządzania produkcją.">
-</head>
-<body>
-    <main>
-        <h1>MES Lite</h1>
-        <p>Lekki system zarządzania produkcją dla małych i średnich przedsiębiorstw.</p>
+    <meta name="description" content="Praktyczne rozwiązania IT dla firm produkcyjnych i nie tylko. Dedykowane aplikacje webowe, integracje, automatyzacje i MESLite.">
+    <meta name="theme-color" content="#101E28">
+    <title>MESLite — praktyczne rozwiązania IT dla firm</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+    <main id="tresc">
+    <!-- 01: Nagłówek i Hero. Miejsce na dekorację SVG pozostaje puste w etapie 1. -->
+    <section class="site-section site-section--dark site-section--hero" id="poczatek" aria-labelledby="hero-title">
+      <div class="section-decoration" aria-hidden="true"></div>
+      <div class="section-content">
+        <header class="site-header container">
+          <a class="brand" href="#poczatek" aria-label="MESLite — początek strony">
+            <img class="brand__mark" src="assets/meslite-mark.svg" alt="" width="64" height="48">
+            <span class="brand__name">MES<span class="brand__name-light">Lite</span></span>
+          </a>
+          <nav class="site-nav" aria-label="Nawigacja główna">
+            <a href="#oferta">Oferta</a>
+            <a href="#meslite">MESLite</a>
+            <a href="#kontakt">Kontakt</a>
+          </nav>
+        </header>
+
+        <div class="hero container">
+            <div class="hero__copy text-surface">
+              <h1 id="hero-title">Zacznij od jednego problemu. <span>Nie od wielkiego systemu.</span></h1>
+              <p class="hero__lead">Praktyczne rozwiązania IT dla firm produkcyjnych i nie tylko.</p>
+              <p>Tworzymy dedykowane aplikacje webowe, integracje i automatyzacje dopasowane do rzeczywistych potrzeb przedsiębiorstw.</p>
+              <p>Pomagamy uporządkować dane, ograniczyć powtarzalną pracę i usprawnić codzienne procesy — bez niepotrzebnego komplikowania rozwiązań.</p>
+              <div class="hero__actions">
+                <a class="button-outline" href="mailto:kontakt.meslite@gmail.com">Porozmawiajmy o Twoim problemie</a>
+                <a class="link-accent" href="#meslite">Poznaj MESLite <span class="link-accent__arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- 02: Problemy klientów -->
+    <section class="site-section site-section--light site-section--problems" id="problemy" aria-labelledby="problems-title">
+      <div class="section-decoration" aria-hidden="true"></div>
+      <div class="section-content container content-section">
+        <div class="section-heading text-surface">
+          <h2 id="problems-title">Ile pracy w Twojej firmie wciąż można uprościć?</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature text-surface">
+            <div class="feature__heading">
+              <svg class="feature__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#sheets"></use></svg>
+              <h3>Za dużo Excela i ręcznego przepisywania danych?</h3>
+            </div>
+            <p>Informacje rozproszone między arkuszami, dokumentami i systemami utrudniają codzienną pracę. Pomagamy je uporządkować i ograniczyć konieczność wielokrotnego wprowadzania tych samych danych.</p>
+          </article>
+          <article class="feature text-surface">
+            <div class="feature__heading">
+              <svg class="feature__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#time"></use></svg>
+              <h3>Procesy są skomplikowane i zajmują zbyt dużo czasu?</h3>
+            </div>
+            <p>Niektóre powtarzalne czynności można uprościć lub zautomatyzować. Przyjrzyjmy się, które usprawnienia rzeczywiście mają sens w Twojej firmie.</p>
+          </article>
+          <article class="feature text-surface">
+            <div class="feature__heading">
+              <svg class="feature__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#database"></use></svg>
+              <h3>Gotowe oprogramowanie jest zbyt drogie lub niedopasowane?</h3>
+            </div>
+            <p>Nie każdy problem wymaga rozbudowanego systemu. Lepszym i tańszym rozwiązaniem może być mniejsza aplikacja, która realizuje dokładnie to, czego potrzebujesz, w sposób dopasowany do Twoich procesów.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03: Oferta -->
+    <section class="site-section site-section--light site-section--offer" id="oferta" aria-labelledby="offer-title">
+      <div class="section-decoration" aria-hidden="true"></div>
+      <div class="section-content container content-section">
+        <div class="section-heading text-surface">
+          <h2 id="offer-title">Co możemy dla Ciebie stworzyć?</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature text-surface">
+            <div class="feature__heading">
+              <svg class="feature__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#code"></use></svg>
+              <h3>Dedykowane oprogramowanie</h3>
+            </div>
+            <p>Proste, wygodne narzędzia wspierające wybrane procesy w przedsiębiorstwie. Dopasowane do sposobu pracy Twojej firmy, zamiast wymuszać zmianę jej organizacji pod gotowy system.</p>
+          </article>
+          <article class="feature text-surface">
+            <div class="feature__heading">
+              <svg class="feature__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#integrate"></use></svg>
+              <h3>Integracje systemów i danych</h3>
+            </div>
+            <p>Łączenie informacji pochodzących z różnych aplikacji i źródeł. Mniej ręcznego przenoszenia danych, mniej powielania pracy i łatwiejszy dostęp do aktualnych informacji.</p>
+          </article>
+          <article class="feature text-surface">
+            <div class="feature__heading">
+              <svg class="feature__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#automate"></use></svg>
+              <h3>Automatyzacja codziennych czynności</h3>
+            </div>
+            <p>Ograniczanie czasochłonnych, powtarzalnych zadań poprzez odpowiednio dobrane rozwiązania informatyczne.</p>
+          </article>
+        </div>
+        <p class="offer-summary text-surface">Nie musisz od razu inwestować w duży system. Sprawdźmy, czy Twój problem można rozwiązać mniejszym, konkretnym projektem.</p>
+      </div>
+    </section>
+
+    <!-- 04: MESLite -->
+    <section class="site-section site-section--dark site-section--product" id="meslite" aria-labelledby="product-title">
+      <div class="section-decoration" aria-hidden="true"></div>
+      <div class="section-content container content-section">
+        <div class="product-intro text-surface">
+          <h2 id="product-title">MESLite — produkcja pod kontrolą</h2>
+          <p class="product-intro__line">Zlecenia · Postęp · Monitoring · Raporty</p>
+          <p>Rozwijamy MESLite — lekki system wspierający organizację i monitorowanie pracy, tworzony z myślą o rzeczywistych potrzebach procesów produkcyjnych.</p>
+          <p>Bez zbędnych funkcji. Bez niepotrzebnej komplikacji. Z naciskiem na to, co naprawdę usprawnia codzienną pracę na Twojej produkcji.</p>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-group text-surface">
+            <h3>Co możesz usprawnić?</h3>
+            <ul class="accent-list">
+              <li>Zadania i pracownicy — lepsza organizacja codziennej pracy.</li>
+              <li>Realizacja zleceń — łatwiejsze śledzenie postępu produkcji.</li>
+              <li>Przestoje i problemy — sprawniejsze identyfikowanie przeszkód w realizacji prac.</li>
+              <li>Statystyki i raporty — czytelniejsze informacje o przebiegu procesów produkcyjnych.</li>
+            </ul>
+          </div>
+          <div class="product-group text-surface">
+            <h3>Co może zyskać Twoja firma?</h3>
+            <ul class="accent-list">
+              <li>Szybszy przepływ informacji między halą produkcyjną a biurem.</li>
+              <li>Dane produkcyjne uporządkowane w jednym miejscu, dostępne na wyciągnięcie myszki.</li>
+              <li>Mniej ręcznego przepisywania informacji z papieru, Excela i innych systemów.</li>
+              <li>Przejrzysty obraz postępu prac i szybsze wykrywanie występujących problemów.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pilot-frame">
+          <div class="pilot-frame__inner text-surface">
+            <h3>Rozwijajmy MESLite wspólnie</h3>
+            <p>Szukamy firmy zainteresowanej współpracą przy rozwoju MESLite, celem jak najlepszego dopasowania do rzeczywistych potrzeb przedsiębiorstwa. Proponujemy preferencyjne warunki przy pilotażowym wdrożeniu, bezpośredni kontakt z programistami i możliwość realnego wpływu na kierunek rozwoju systemu.</p>
+            <p>Zacznijmy od jednego problemu, sprawdźmy rozwiązanie w praktyce i rozwijajmy je tam, gdzie przynosi wartość.</p>
+            <a class="link-accent" href="mailto:kontakt.meslite@gmail.com">Porozmawiajmy o MESLite <span class="link-accent__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05: Współpraca -->
+    <section class="site-section site-section--light site-section--process" id="wspolpraca" aria-labelledby="process-title">
+      <div class="section-decoration" aria-hidden="true"></div>
+      <div class="section-content container content-section">
+        <div class="section-heading text-surface">
+          <h2 id="process-title">Jak współpracujemy?</h2>
+        </div>
+        <ol class="process-grid">
+          <li class="process-step text-surface">
+            <span class="process-step__number" aria-hidden="true">01</span>
+            <div>
+              <h3>Poznajemy problem</h3>
+              <p>Rozmawiamy o sposobie pracy Twojej firmy, istniejących trudnościach i możliwościach usprawnień.</p>
+            </div>
+          </li>
+          <li class="process-step text-surface">
+            <span class="process-step__number" aria-hidden="true">02</span>
+            <div>
+              <h3>Wybieramy konkretny zakres</h3>
+              <p>Wspólnie ustalamy, co warto zrealizować na początek. Nie zawsze potrzebny jest duży projekt — czasem wystarczy jedno dobrze zaprojektowane usprawnienie.</p>
+            </div>
+          </li>
+          <li class="process-step text-surface">
+            <span class="process-step__number" aria-hidden="true">03</span>
+            <div>
+              <h3>Tworzymy i rozwijamy rozwiązanie</h3>
+              <p>Przygotowujemy oprogramowanie dopasowane do ustalonych potrzeb. W razie potrzeby możemy stopniowo rozszerzać je o kolejne funkcje.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="process-summary text-surface">Oprogramowanie dopasowane do procesu, nie proces do oprogramowania.</p>
+      </div>
+    </section>
+
+    <!-- 06: Kontakt -->
+    <section class="site-section site-section--light site-section--contact" id="kontakt" aria-labelledby="contact-title">
+      <div class="section-decoration" aria-hidden="true"></div>
+      <div class="section-content container content-section">
+        <div class="contact-layout">
+          <div class="contact-copy text-surface">
+            <h2 id="contact-title">Masz problem, który warto rozwiązać?</h2>
+            <p class="contact-copy__lead">Nie musisz mieć gotowego projektu ani szczegółowej specyfikacji.</p>
+            <p>Opowiedz nam, co chciałbyś usprawnić w swojej firmie. Porozmawiamy o możliwych rozwiązaniach i sprawdzimy, od czego warto zacząć.</p>
+            <a class="link-accent link-accent--dark" href="mailto:kontakt.meslite@gmail.com">Napisz do nas <span class="link-accent__arrow" aria-hidden="true">→</span></a>
+          </div>
+          <div class="contact-details text-surface">
+            <div class="contact-details__row">
+              <svg class="contact-details__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="assets/icons.svg#mail"></use></svg>
+              <div>
+                <span class="contact-details__label">E-mail:</span>
+                <a href="mailto:kontakt.meslite@gmail.com">kontakt.meslite@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     </main>
-</body>
+  </body>
 </html>

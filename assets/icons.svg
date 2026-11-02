@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="sheets" viewBox="0 0 48 48">
+    <rect x="11" y="7" width="26" height="34" rx="2"/>
+    <path d="M17 16h14M17 22h14M17 28h8M17 34h14"/>
+    <path d="M8 13H5v29h24v-1"/>
+  </symbol>
+  <symbol id="time" viewBox="0 0 48 48">
+    <circle cx="23" cy="23" r="16"/><path d="M23 13v11l8 5"/>
+    <path d="m34 37 4 4 7-8"/>
+  </symbol>
+  <symbol id="database" viewBox="0 0 48 48">
+    <ellipse cx="24" cy="10" rx="15" ry="6"/>
+    <path d="M9 10v27c0 3.3 6.7 6 15 6s15-2.7 15-6V10M9 23c0 3.3 6.7 6 15 6s15-2.7 15-6M9 32c0 3.3 6.7 6 15 6s15-2.7 15-6"/>
+  </symbol>
+  <symbol id="code" viewBox="0 0 48 48">
+    <rect x="5" y="8" width="38" height="32" rx="2"/>
+    <path d="M5 16h38m-27 8-6 5 6 5m16-10 6 5-6 5m-7-11-4 12"/>
+  </symbol>
+  <symbol id="integrate" viewBox="0 0 48 48">
+    <rect x="5" y="7" width="11" height="11" rx="1"/>
+    <rect x="32" y="30" width="11" height="11" rx="1"/>
+    <path d="M16 12h10v23h6M22 12l4 0"/><circle cx="26" cy="12" r="2"/>
+  </symbol>
+  <symbol id="automate" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="8"/>
+    <path d="m22 17 6 7-6 7"/>
+  </symbol>
+  <symbol id="mail" viewBox="0 0 48 48">
+    <rect x="5" y="10" width="38" height="28" rx="2"/>
+    <path d="m6 13 18 14 18-14"/>
+  </symbol>
+</svg>
