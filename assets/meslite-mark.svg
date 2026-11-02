@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 78" fill="none" role="img" aria-labelledby="title">
-  <title id="title">Symbol MESLite</title>
-  <path d="M11 66V19c0-2.5 3-3.7 4.8-2L42 39.9c2.2 1.9 4.2 2 6.5 0L67 23.8c2.5-2.2 6.2-.4 6.2 3V58c0 4.1 2.2 6.4 6.3 6.4H97" stroke="#7B8794" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M20 8.5L43 28.7c2.4 2.1 5.6 2.1 8 0L72.5 10c4-3.4 10.2-.8 10.2 4.5V37" stroke="#F58220" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="5" y="2" width="10" height="10" rx="2" fill="#F58220"/>
-  <rect x="5" y="65" width="10" height="10" rx="2" fill="#F58220"/>
-  <rect x="78" y="43" width="10" height="10" rx="2" fill="#F58220"/>
-</svg>

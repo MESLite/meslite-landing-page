@@ -1,4 +1,4 @@
-/* MESLite — proceduralna dekoracja SVG (geometria zatwierdzona w etapie 2).
+/* MESLite — proceduralna dekoracja SVG (etap 3, dopracowanie geometrii).
  * Jedna nieregularna siatka; wybierane z niej połączone segmenty trzech poziomów.
  * Każda sekcja ma własny seed i SVG. Animacja jest w osobnym module.
  */
@@ -137,6 +137,31 @@
       return trace(points);
     }
 
+    // Spójny szkielet oczek przy obu krawędziach. Wewnętrzna granica sieci
+    // wędruje powoli w poziomie, więc kompletne oczka stopniowo ustępują
+    // rzadszym fragmentom. Każda komórka współdzieli krawędzie z sąsiadami.
+    for (let side = 0; side < 2; side += 1) {
+      const rand = random(mixSeed(sectionSeed, side, 419));
+      const sideWidth = Math.max(width * settings.sideZone, settings.minGapX * 1.5);
+      const zoneCount = Math.max(1, Math.min(nearestIndex(xAxis, sideWidth), Math.floor(lastX / 2)));
+      let reach = Math.min(2, zoneCount);
+
+      for (let y = 0; y < lastY; y += 1) {
+        // Zachowaj długie piony; zmiany zasięgu dotyczą przede wszystkim
+        // poziomych zakończeń i następują rzadziej niż na każdym przecięciu.
+        if (rand() < 0.34) {
+          reach = Math.max(1, Math.min(zoneCount, reach + (rand() < 0.56 ? -1 : 1)));
+        }
+        for (let depth = 0; depth < reach; depth += 1) {
+          const x = side === 0 ? depth : lastX - depth - 1;
+          putEdge(x, y, x, y + 1);
+          putEdge(x + 1, y, x + 1, y + 1);
+          putEdge(x, y, x + 1, y);
+          putEdge(x, y + 1, x + 1, y + 1);
+        }
+      }
+    }
+
     // Niezależne pasy logiczne. Seed każdego pasa pozostaje stały przy wydłużaniu sekcji.
     const bands = Math.ceil(height / settings.bandHeight);
     for (let band = 0; band < bands; band += 1) {
@@ -233,6 +258,24 @@
             const accentPath = goodPaths[between(rand, 0, goodPaths.length - 1)];
             highlight(accentPath, 3, rand, isMobile ? 2 : 4);
           }
+        }
+      }
+    }
+
+    // Swobodne końce pionowych torów domykamy krótką odnogą poziomą.
+    // Końce dotykające górnej/dolnej granicy sekcji pozostają bez zmian.
+    const endpointDegree = new Map();
+    for (const edge of edges.values()) {
+      for (const [x, y] of [[edge.x1, edge.y1], [edge.x2, edge.y2]]) {
+        const key = createNode(x, y);
+        endpointDegree.set(key, (endpointDegree.get(key) || 0) + 1);
+      }
+    }
+    for (const edge of Array.from(edges.values())) {
+      if (edge.x1 !== edge.x2) continue;
+      for (const [x, y] of [[edge.x1, edge.y1], [edge.x2, edge.y2]]) {
+        if (y > 0 && y < lastY && endpointDegree.get(createNode(x, y)) === 1) {
+          putEdge(x, y, x + (x < lastX / 2 ? 1 : -1), y, edge.rank);
         }
       }
     }
